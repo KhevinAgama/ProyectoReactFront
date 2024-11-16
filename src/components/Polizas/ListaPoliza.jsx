@@ -100,7 +100,13 @@ const ListarPoliza = () => {
             <form onSubmit={handleUpdate}>
             <div>
               <label>Tipo de Seguro:</label>
-              <input type="text" name="tipo_seguro" value={polizaSeleccionada.tipo_seguro} onChange={handleChange} required />
+              {/* <input type="text" name="tipo_seguro" value={polizaSeleccionada.tipo_seguro} onChange={handleChange} required /> */}
+              <select name="tipo_seguro" value={polizaSeleccionada.tipo_seguro} onChange={handleChange} required>
+                <option value="">Seleccione un tipo de seguro</option>
+                <option value="auto">auto</option>
+                <option value="celular">celular</option>
+                <option value="inmueble">inmueble</option>
+              </select>
             </div>
             <div>
               <label>Fecha de Inicio:</label>
@@ -112,7 +118,7 @@ const ListarPoliza = () => {
             </div>
             <div>
               <label>Monto Asegurado:</label>
-              <input type="number" name="monto_asegurado" value={polizaSeleccionada.monto_asegurado} onChange={handleChange} required />
+              <input type="number" name="monto_asegurado" value={polizaSeleccionada.monto_asegurado} onChange={handleChange} min="0" required />
             </div>
             <div>
               <label>Detalles Adicionales:</label>
@@ -120,7 +126,7 @@ const ListarPoliza = () => {
             </div>
             <div>
               <label>ID Usuario:</label>
-              <input type="text" name="id_usuario" value={polizaSeleccionada.id_usuario || ''} onChange={handleChange} required/>
+              <input type="text" name="id_usuario" value={polizaSeleccionada.id_usuario || ''} onChange={handleChange} min="0" required/>
             </div>
             <div>
               <button type="submit">Guardar Cambios</button>

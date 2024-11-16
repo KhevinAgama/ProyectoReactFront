@@ -67,6 +67,7 @@ const ListarUsuarios = () => {
             <th>Nombre Usuario</th>
             <th>Correo Usuario</th>
             <th>DNI Usuario</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>

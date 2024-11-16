@@ -18,7 +18,7 @@ const BuscarUsuario = () => {
   return (
     <div>
       <h2>Buscar Póliza por ID</h2>
-      <input type="text" placeholder="Ingrese ID de la póliza" value={usuarioId} onChange={(e) => setUsuarioId(e.target.value)} />
+      <input type="number" placeholder="Ingrese ID de la póliza" value={usuarioId} onChange={(e) => setUsuarioId(e.target.value)} min={1} />
       <button onClick={handleSearch}>Buscar</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {usuario && (

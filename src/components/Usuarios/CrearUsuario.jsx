@@ -37,7 +37,7 @@ const CrearUsuario = () => {
                     <input type="input" name="correo" value={usuario.correo} onChange={handleChange} required />
                 </label><br />
                 <label>DNI: 
-                    <input type="number" name="dni" value={usuario.dni} onChange={handleChange} required />
+                    <input type="number" name="dni" value={usuario.dni} onChange={handleChange} minLength={8} maxLength={8} required />
                 </label><br />
                 <button type="submit">Crear Usuario</button>
             </form>
