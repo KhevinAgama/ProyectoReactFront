@@ -19,20 +19,41 @@ const BuscarPolizaPorId = () => {
   return (
     <div>
       <h2>Buscar Póliza por ID</h2>
-      <input type="number" placeholder="Ingrese ID de la póliza" value={polizaId} onChange={(e) => setPolizaId(e.target.value)} min="1" />
-      <button onClick={handleSearch}>Buscar</button>
+      <input type="number" placeholder="Ingrese ID de la póliza" value={polizaId} onChange={(e) => setPolizaId(e.target.value)} min="1" />&nbsp;&nbsp;&nbsp;
+      <button className="btn-donate" onClick={handleSearch}>Buscar</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {poliza && (
         <div>
-          <h3>Detalles de la Póliza</h3>
-          <p><strong>ID:</strong> {poliza.id_poliza}</p>
-          <p><strong>Tipo de Seguro:</strong> {poliza.tipo_seguro}</p>
-          <p><strong>Fecha de Inicio:</strong> {poliza.fecha_inicio}</p>
-          <p><strong>Fecha de Vencimiento:</strong> {poliza.fecha_vencimiento}</p>
-          <p><strong>Monto Asegurado:</strong> {poliza.monto_asegurado}</p>
-          <p><strong>Detalles Adicionales:</strong> {poliza.detalles_adicionales}</p>
-          <p><strong>ID Usuario Asociado:</strong> {poliza.id_usuario}</p>
-          </div>
+          <br/>
+          <div className='card'>
+              <div className="card__title">
+                <h2>Detalles de la Póliza</h2>
+              </div>
+                <div className="card__data">
+                  <div className="card__right3">
+                    <div className="item">
+                      <strong>Tipo de Seguro:</strong> {poliza.tipo_seguro}
+                    </div>
+                    <div className="item">
+                      <strong>Fecha de Inicio:</strong> {poliza.fecha_inicio}
+                    </div>
+                    <div className="item">
+                      <strong>Fecha de Vencimiento:</strong> {poliza.fecha_vencimiento}
+                    </div>
+                    <div className="item">
+                      <strong>Monto Asegurado:</strong> {poliza.monto_asegurado}
+                    </div>
+                    <div className="item">
+                      <strong>Detalles Adicionales:</strong> {poliza.detalles_adicionales}
+                    </div>
+                    <div className="item">
+                      <strong>ID Usuario Asociado:</strong> {poliza.id_usuario}
+                    </div>
+                  </div>
+                </div>
+                <br/>              
+            </div>
+        </div>
       )}
     </div>
   );

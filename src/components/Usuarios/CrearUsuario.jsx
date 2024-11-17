@@ -27,20 +27,43 @@ const CrearUsuario = () => {
     };
     return (
         <div>
-            <h2>Crear Nueva Usuario</h2>
+            
+            <br/>
+            <div className='card'>
             {mensaje && <p>{mensaje}</p>}
             <form onSubmit={handleSubmit}>
-                <label>Nombre: 
-                    <input type="text" name="nombre" value={usuario.nombre} onChange={handleChange} required />
-                </label><br />
-                <label>Correo: 
-                    <input type="input" name="correo" value={usuario.correo} onChange={handleChange} required />
-                </label><br />
-                <label>DNI: 
-                    <input type="number" name="dni" value={usuario.dni} onChange={handleChange} minLength={8} maxLength={8} required />
-                </label><br />
-                <button type="submit">Crear Usuario</button>
-            </form>
+              <div className="card__title">
+                <h2>Crear Nuevo Usuario</h2>
+              </div>
+                <div className="card__data">
+                    <div className="card__right">
+                        <div className='item'>
+                            Nombre: 
+                        </div>
+                        <div className='item'>
+                            Correo: 
+                        </div>
+                        <div className='item'>
+                            DNI: 
+                        </div>
+                    </div>
+                  <div className="card__left">
+                    <div className="item">
+                        <input type="text" name="nombre" value={usuario.nombre} onChange={handleChange} required />
+                    </div>
+                    <div className="item">
+                        <input type="input" name="correo" value={usuario.correo} onChange={handleChange} required />
+                    </div>
+                    <div className="item">
+                        <input type="number" name="dni" value={usuario.dni} onChange={handleChange} minLength={8} maxLength={8} required />
+                    </div>
+                  </div>
+                </div>
+                <br/>
+                &nbsp;&nbsp;&nbsp;<button className='btn-donate' type="submit">Crear Usuario</button>
+                <br/>&nbsp;<br/>
+                </form>              
+            </div>
         </div>
     );
 };

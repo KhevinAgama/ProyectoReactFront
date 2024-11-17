@@ -34,35 +34,66 @@ const CrearPoliza = () => {
     };
     return (
         <div>
-            <h2>Crear Nueva Póliza</h2>
+           <br/>
+            <div className='card'>
             {mensaje && <p>{mensaje}</p>}
             <form onSubmit={handleSubmit}>
-                <label>Tipo de Seguro: 
-                    {/* <input type="text" name="tipo_seguro" value={poliza.tipo_seguro} onChange={handleChange} required /> */}
+              <div className="card__title">
+                <h2>Crear Nueva Póliza</h2>
+              </div>
+                <div className="card__data">
+                    <div className="card__right2">
+                        <div className='item'>
+                            Tipo de Seguro: 
+                        </div>
+                        <div className='item'>
+                            Fecha de Inicio: 
+                        </div>
+                        <div className='item'>
+                            Fecha de Vencimiento: 
+                        </div>
+                        <div className='item'>
+                            Monto Asegurado:
+                        </div>
+                        <div className='item'>
+                            Detalles Adicionales:
+                        </div>
+                        <div className='item'>
+                            ID Usuario: 
+                        </div>
+                    </div>
+                  <div className="card__left">
+                    <div className="item">
                     <select name="tipo_seguro" value={poliza.tipo_seguro} onChange={handleChange} required>
                         <option value="">Seleccione un tipo de seguro</option>
                         <option value="auto">auto</option>
                         <option value="celular">celular</option>
                         <option value="inmueble">inmueble</option>
                     </select>
-                </label><br />
-                <label>Fecha de Inicio: 
+                    </div>
+                    <div className="item">
                     <input type="date" name="fecha_inicio" value={poliza.fecha_inicio} onChange={handleChange} required />
-                </label><br />
-                <label>Fecha de Vencimiento: 
+                    </div>
+                    <div className="item">
                     <input type="date" name="fecha_vencimiento" value={poliza.fecha_vencimiento} onChange={handleChange} required />
-                </label><br />
-                <label>Monto Asegurado:
+                    </div>
+                    <div className="item">
                     <input type="number" name="monto_asegurado" value={poliza.monto_asegurado} onChange={handleChange} min="0" required />
-                </label><br />
-                <label>Detalles Adicionales: 
-                    <textarea name="detalles_adicionales" value={poliza.detalles_adicionales} onChange={handleChange} ></textarea>
-                </label><br />
-                <label>ID Usuario:  
+                    </div>
+                    <div className="item">
+                    <input type="text" name="detalles_adicionales" value={poliza.detalles_adicionales} onChange={handleChange} min="0" required />
+                    </div>
+                    <div className="item">
                     <input type="number" name="id_usuario" value={poliza.id_usuario} onChange={handleChange} min="0" required/>
-                </label><br />
-                <button type="submit">Crear Póliza</button>
-            </form>
+                    </div>
+                  </div>
+                </div>
+                <br/>
+                &nbsp;&nbsp;&nbsp;<button className='btn-donate' type="submit">Crear Póliza</button>
+                <br/>&nbsp;<br/>
+                </form>              
+            </div>
+
         </div>
     );
 };

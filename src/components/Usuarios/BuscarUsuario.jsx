@@ -17,18 +17,36 @@ const BuscarUsuario = () => {
   };
   return (
     <div>
-      <h2>Buscar Póliza por ID</h2>
-      <input type="number" placeholder="Ingrese ID de la póliza" value={usuarioId} onChange={(e) => setUsuarioId(e.target.value)} min={1} />
-      <button onClick={handleSearch}>Buscar</button>
+      <h2>Buscar Usuario por ID</h2>
+      <input type="number" placeholder="Ingrese ID del usuario" value={usuarioId} onChange={(e) => setUsuarioId(e.target.value)} min={1} />&nbsp;&nbsp;&nbsp;
+      <button className="btn-donate" onClick={handleSearch}>Buscar</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {usuario && (
         <div>
-          <h3>Detalles de la Póliza</h3>
-          <p><strong>ID: </strong> {usuario.id_usuario}</p>
-          <p><strong>Nombre Usuario: </strong> {usuario.nombre}</p>
-          <p><strong>Correo Usuario: </strong> {usuario.correo}</p>
-          <p><strong>DNI Usuario: </strong> {usuario.dni}</p>
-          </div>
+          <br/>
+          <div className='card'>
+              <div className="card__title">
+                <h2>Detalles del Usuario</h2>
+              </div>
+                <div className="card__data">
+                  <div className="card__right3">
+                    <div className="item">
+                      <strong>Tipo de Seguro:</strong> {usuario.id_usuario}
+                    </div>
+                    <div className="item">
+                      <strong>Fecha de Inicio:</strong> {usuario.nombre}
+                    </div>
+                    <div className="item">
+                      <strong>Fecha de Vencimiento:</strong> {usuario.correo}
+                    </div>
+                    <div className="item">
+                      <strong>Monto Asegurado:</strong> {usuario.dni}
+                    </div>
+                  </div>
+                </div>
+                <br/>              
+            </div>  
+        </div>
       )}
     </div>
   );
