@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 const CrearPoliza = () => {
     const [poliza, setPoliza] = useState({
@@ -9,7 +9,20 @@ const CrearPoliza = () => {
         detalles_adicionales: '',
         id_usuario: '',
     });
+    const [usuarios, setUsuarios] = useState([]);
     const [mensaje, setMensaje] = useState('');
+    useEffect(() => {
+		const fetchUsuarios = async () => {
+			try {
+				const response = await axios.get('http://localhost:8080/usuarios/obtenerUsuarios');
+				setUsuarios(response.data);
+			} catch (error) {
+				console.error('Error al cargar los usuarios:');
+				setMensaje('Error al cargar la lista de usuarios.');
+			}
+		};
+		fetchUsuarios();
+	}, []);
     const handleChange = (e) => {
         //console.log(poliza);
         const { name, value } = e.target;
@@ -83,9 +96,19 @@ const CrearPoliza = () => {
                     <div className="item">
                     <input type="text" name="detalles_adicionales" value={poliza.detalles_adicionales} onChange={handleChange} min="0" required />
                     </div>
-                    <div className="item">
+                    {/* <div className="item">
                     <input type="number" name="id_usuario" value={poliza.id_usuario} onChange={handleChange} min="0" required/>
-                    </div>
+                    </div> */}
+                    <div className="item">
+						<select name="id_usuario" value={poliza.id_usuario} onChange={handleChange} required >
+							<option value="">Seleccione un usuario</option>
+							{usuarios.map((usuario) => (
+								<option key={usuario.id_usuario} value={usuario.id_usuario}>
+									{usuario.nombre}
+								</option>
+							))}
+						</select>
+					</div>
                   </div>
                 </div>
                 <br/>
