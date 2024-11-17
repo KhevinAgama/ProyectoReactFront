@@ -50,8 +50,8 @@ button {
   padding: 20px;
 }
 .sidebar {
-  height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
-  overflow-y: auto; /* Habilita el desplazamiento vertical */
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .nav ul {
@@ -60,7 +60,7 @@ button {
 }
 
 .nav .nav-item {
-  margin-bottom: 10px; /* Espaciado entre opciones */
+  margin-bottom: 10px;
 }
 
 .nav .nav-link {

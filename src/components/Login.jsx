@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import imagen from './image/user.png'
 import "./estilos/login.css";
 
 const Login = ({ setIsAuthenticated }) => {
@@ -9,21 +10,26 @@ const Login = ({ setIsAuthenticated }) => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (username === "admin" && password === "1234") {
-      setIsAuthenticated(); // Cambia el estado global
-      navigate("/dashboard"); // Redirige al dashboard
+      setIsAuthenticated(); // Cambiar el estado global
+      navigate("/dashboard"); // Redirigir al dashboard
     } else {
       alert("Credenciales incorrectas");
     }
   };
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div style={{ paddingTop:"30%" }}>
+      <div style={{ paddingTop:"40%" }}>
 
       </div>
       <div className="card">
         <div className="card2">
           <form className="form" onSubmit={handleLogin}>
-            <p id="heading">Login</p>
+            <p id="heading">Login SegurAl</p>
+            {/* <div className="contenedorPadre">
+                <div className="contenedorHijo">
+                  <img src={imagen} />
+                </div>
+            </div>             */}
             <div className="field">
               <svg
                 viewBox="0 0 16 16"

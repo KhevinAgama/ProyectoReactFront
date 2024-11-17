@@ -71,6 +71,20 @@ li.dropdown3 {
     display: inline-block;
 }
 img {
-    width: 80%;
+    width: 48px;
+    padding: 0px 20px;
     cursor: pointer;
+}
+
+a {
+  color: white;
+}
+
+.dropdown4 {
+  width: 100%;
+  flex-direction: column;
+  align-items: center; 
+}
+li.dropdown4 {
+  display: flex;
 }

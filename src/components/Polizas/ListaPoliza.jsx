@@ -80,25 +80,25 @@ const ListarPoliza = () => {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Tipo de Seguro</th>
-            <th>Fecha de Inicio</th>
-            <th>Fecha de Vencimiento</th>
-            <th>Monto Asegurado</th>
-            <th>Detalles Adicionales</th>
-            <th>ID Usuario</th>
-            <th>Acciones</th>
+            <th className="centradoTable">Tipo de Seguro</th>
+            <th className="centradoTable">Fecha de Inicio</th>
+            <th className="centradoTable">Fecha de Vencimiento</th>
+            <th className="centradoTable">Monto Asegurado</th>
+            <th className="centradoTable">Detalles Adicionales</th>
+            <th className="centradoTable">ID Usuario</th>
+            <th className="centradoTable">Acciones</th>
           </tr>
         </thead>
         <tbody>
           {polizas.map((poliza) => (
             <tr key={poliza.id_poliza}>
               <td>{poliza.id_poliza}</td>
-              <td>{poliza.tipo_seguro}</td>
-              <td>{poliza.fecha_inicio}</td>
-              <td>{poliza.fecha_vencimiento}</td>
-              <td>S/. {poliza.monto_asegurado}</td>
+              <td className="centradoTable">{poliza.tipo_seguro}</td>
+              <td className="centradoTable">{poliza.fecha_inicio}</td>
+              <td className="centradoTable">{poliza.fecha_vencimiento}</td>
+              <td className="centradoTable">S/. {poliza.monto_asegurado}</td>
               <td>{poliza.detalles_adicionales || "N/A"}</td>
-              <td>{poliza.id_usuario}</td>
+              <td className="centradoTable">{poliza.id_usuario}</td>
               <td>
                 <button className="BtnAcciones" onClick={() => handleEdit(poliza)}>
                   Editar

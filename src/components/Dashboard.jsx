@@ -49,8 +49,16 @@ const Dashboard = ({ onLogout }) => {
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <div className="pt-3"><Outlet /></div>
             </main>
-            
+            <br/>
+            {/* <div>
+                <ul>
+                    <li className="dropdown4">
+                        [UMSA - Softtek] Proyecto Poliza de Seguros SegurAl
+                    </li>
+                </ul>
+            </div> */}
         </div>
+
     );
 };
 export default Dashboard;
