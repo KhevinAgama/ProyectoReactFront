@@ -7,6 +7,7 @@ const ListarPoliza = () => {
   const [mensaje, setMensaje] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [polizaSeleccionada, setPolizaSeleccionada] = useState(null);
+  const [errorBackend, setErrorBackend] = useState('');
   // Obtener las pólizas desde el backend
   useEffect(() => {
     const fetchPolizas = async () => {
@@ -62,9 +63,14 @@ const ListarPoliza = () => {
         )
       );
       closeModal();
+      setErrorBackend('');
     } catch (error) {
-      setMensaje("Error al actualizar la póliza.");
-      console.error(error);
+      if (error.response && error.response.data && error.response.data.message) {
+				setErrorBackend(error.response.data.message + ' Por favor corregirlo.');
+                console.log(error.response.data.message);
+			} else {
+				setErrorBackend('Error al procesar la solicitud.');
+			}
     }
   };
   // Manejar cambios en el formulario
@@ -125,6 +131,7 @@ const ListarPoliza = () => {
               <div className="card__title">
                 <h2>Editar Póliza</h2>
               </div>
+              {errorBackend && <p style={{ color: 'red' }}>{errorBackend}</p>}
               <form onSubmit={handleUpdate}>
                 <div className="card__data">
                   <div className="card__right2">

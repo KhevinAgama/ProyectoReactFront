@@ -11,6 +11,7 @@ const CrearPoliza = () => {
     });
     const [usuarios, setUsuarios] = useState([]);
     const [mensaje, setMensaje] = useState('');
+    const [errorBackend, setErrorBackend] = useState(''); 
     useEffect(() => {
 		const fetchUsuarios = async () => {
 			try {
@@ -41,8 +42,15 @@ const CrearPoliza = () => {
                 detalles_adicionales: '',
                 id_usuario: '',
             });
+            setErrorBackend('');
         } catch (error) {
-            setMensaje('Error al crear la póliza.'+ error);
+            // setMensaje('Error al crear la póliza.'+ error);
+            if (error.response && error.response.data && error.response.data.message) {
+				setErrorBackend(error.response.data.message + ' Por favor corregirlo.');
+                console.log(error.response.data.message);
+			} else {
+				setErrorBackend('Error al procesar la solicitud.');
+			}
         }
     };
     return (
@@ -50,6 +58,7 @@ const CrearPoliza = () => {
            <br/>
             <div className='card'>
             {mensaje && <p>{mensaje}</p>}
+            {errorBackend && <p style={{ color: 'red' }}>{errorBackend}</p>}
             <form onSubmit={handleSubmit}>
               <div className="card__title">
                 <h2>Crear Nueva Póliza</h2>

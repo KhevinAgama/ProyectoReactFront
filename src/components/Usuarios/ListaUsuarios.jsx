@@ -8,6 +8,7 @@ const ListarUsuarios = () => {
   const [mensaje, setMensaje] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
+  const [errorBackend, setErrorBackend] = useState('');
 
   useEffect(() => {
     const fetchUsuarios = async () => {
@@ -64,9 +65,16 @@ const ListarUsuarios = () => {
         )
       );
       closeModal();
+      setErrorBackend('');
     } catch (error) {
-      setMensaje("Error al actualizar el usuario.");
-      console.error(error);
+      // setMensaje("Error al actualizar el usuario.");
+      // console.error(error);
+      if (error.response && error.response.data && error.response.data.message) {
+				setErrorBackend(error.response.data.message + ' Por favor corregirlo.');
+                console.log(error.response.data.message);
+			} else {
+				setErrorBackend('Error al procesar la solicitud.');
+			}
     }
   };
   // Manejar cambios en el formulario
@@ -131,6 +139,7 @@ const ListarUsuarios = () => {
               <div className="card__title">
                 <h2>Editar Usuario</h2>
               </div>
+              {errorBackend && <p style={{ color: 'red' }}>{errorBackend}</p>}
               <form onSubmit={handleUpdate}>
                 <div className="card__data">
                   <div className="card__right">

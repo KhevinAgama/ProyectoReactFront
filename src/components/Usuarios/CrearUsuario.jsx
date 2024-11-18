@@ -7,6 +7,7 @@ const CrearUsuario = () => {
         dni: '',
     });
     const [mensaje, setMensaje] = useState('');
+    const [errorBackend, setErrorBackend] = useState('');
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUsuario({ ...usuario, [name]: value });
@@ -21,8 +22,15 @@ const CrearUsuario = () => {
                 correo: '',
                 dni: '',
             });
+            setErrorBackend('');
         } catch (error) {
-            setMensaje('Error al crear el usuario.'+ error);
+            // setMensaje('Error al crear el usuario.'+ error);
+            if (error.response && error.response.data && error.response.data.message) {
+				setErrorBackend(error.response.data.message + ' Por favor corregirlo.');
+                console.log(error.response.data.message);
+			} else {
+				setErrorBackend('Error al procesar la solicitud.');
+			}
         }
     };
     return (
@@ -31,6 +39,7 @@ const CrearUsuario = () => {
             <br/>
             <div className='card'>
             {mensaje && <p>{mensaje}</p>}
+            {errorBackend && <p style={{ color: 'red' }}>{errorBackend}</p>}
             <form onSubmit={handleSubmit}>
               <div className="card__title">
                 <h2>Crear Nuevo Usuario</h2>
