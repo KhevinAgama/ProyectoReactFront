@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import emailjs from 'emailjs-com';
+
 const CrearUsuario = () => {
     const [usuario, setUsuario] = useState({
         nombre: '',
@@ -16,6 +18,12 @@ const CrearUsuario = () => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:8080/usuarios/crearUsuario', usuario);
+            // Enviar Correo Test
+            // const emailParams = { to_email: usuario.correo, user_name: usuario.nombre, };
+            emailjs.send('service_el4ux2o','template_04cfb4v', 
+                { nombre: usuario.nombre, correo: usuario.correo,to_email: usuario.correo, user_name: usuario.nombre, }, 
+                'Jj3sT1otIgqczN9Cw'
+            );
             setMensaje('Usuario creada exitosamente.');
             setUsuario({
                 nombre: '',
