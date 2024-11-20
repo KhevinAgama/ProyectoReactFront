@@ -54,7 +54,7 @@ const CrearPoliza = () => {
         }
     };
     return (
-        <div>
+        <div className='contenedorPadre'>
            <br/>
             <div className='card'>
             {mensaje && <p>{mensaje}</p>}

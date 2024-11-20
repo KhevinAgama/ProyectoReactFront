@@ -31,9 +31,9 @@ const BuscarUsuario = () => {
   };
   return (
     <div>
-      <h2>Buscar Usuario por ID</h2>
+      <h2>&nbsp;&nbsp;Buscar Usuario por ID</h2>
       {/* <input type="number" placeholder="Ingrese ID del usuario" value={usuarioId} onChange={(e) => setUsuarioId(e.target.value)} min={1} />&nbsp;&nbsp;&nbsp; */}
-      <select value={usuarioId} onChange={(e) => setUsuarioId(e.target.value)} required >
+      &nbsp;&nbsp;<select value={usuarioId} onChange={(e) => setUsuarioId(e.target.value)} required >
 				<option value="">Seleccione un usuario</option>
 			  	{usuarios.map((usuario) => (
 				<option key={usuario.id_usuario} value={usuario.id_usuario}>
@@ -41,10 +41,10 @@ const BuscarUsuario = () => {
 				</option>
 				))}
 			</select>
-      <button className="btn-donate" onClick={handleSearch}>Buscar</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;<button className="btn-donate" onClick={handleSearch}>Buscar</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {usuario && (
-        <div>
+        <div className='contenedorPadre'>
           <br/>
           <div className='card'>
               <div className="card__title">
@@ -62,7 +62,7 @@ const BuscarUsuario = () => {
                       <strong>Correo:</strong> {usuario.correo}
                     </div>
                     <div className="item">
-                      <strong>DNI</strong> {usuario.dni}
+                      <strong>DNI: </strong> {usuario.dni}
                     </div>
                   </div>
                 </div>

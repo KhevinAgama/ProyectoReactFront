@@ -34,12 +34,12 @@ const CrearUsuario = () => {
         }
     };
     return (
-        <div>
+        <div className='contenedorPadre'>
             
             <br/>
             <div className='card'>
             {mensaje && <p>{mensaje}</p>}
-            {errorBackend && <p style={{ color: 'red' }}>{errorBackend}</p>}
+            {errorBackend && <p style={{ color: 'white' }}>{errorBackend}</p>}
             <form onSubmit={handleSubmit}>
               <div className="card__title">
                 <h2>Crear Nuevo Usuario</h2>

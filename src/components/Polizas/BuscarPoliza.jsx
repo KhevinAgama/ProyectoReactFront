@@ -32,9 +32,9 @@ const BuscarPolizaPorId = () => {
   };
   return (
     <div>
-      <h2>Buscar Póliza por ID</h2>
+      <h2>&nbsp;&nbsp;Buscar Póliza por ID</h2>
         {/* <input type="number" placeholder="Ingrese ID de la póliza" value={polizaId} onChange={(e) => setPolizaId(e.target.value)} min="1" />&nbsp;&nbsp;&nbsp; */}
-        <select onChange={(e) => setPolizaId(e.target.value)} required >
+        &nbsp;&nbsp;<select onChange={(e) => setPolizaId(e.target.value)} required >
 				  <option value="">Seleccione el ID Póliza</option>
 					{polizas.map((poliza) => (
 					<option key={poliza.id_poliza} value={poliza.idUsuario}>
@@ -45,8 +45,8 @@ const BuscarPolizaPorId = () => {
       <button className="btn-donate" onClick={handleSearch}>Buscar</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {poliza && (
-        <div>
-          <br/>
+        <div className='contenedorPadre'>
+          <br/><br/>
           <div className='card'>
               <div className="card__title">
                 <h2>Detalles de la Póliza</h2>

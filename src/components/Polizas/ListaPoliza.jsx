@@ -8,6 +8,17 @@ const ListarPoliza = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [polizaSeleccionada, setPolizaSeleccionada] = useState(null);
   const [errorBackend, setErrorBackend] = useState('');
+
+  // función formato fecha
+
+  const formatoFecha = (fecha) => {
+    const fechaObject = new Date(fecha);
+    const dia = String(fechaObject.getDate()).padStart(2, '0');
+    const mes = String(fechaObject.getMonth() + 1).padStart(2, '0');
+    const anio = fechaObject.getFullYear();
+    return `${dia}/${mes}/${anio}`;
+  };
+
   // Obtener las pólizas desde el backend
   useEffect(() => {
     const fetchPolizas = async () => {
@@ -85,7 +96,7 @@ const ListarPoliza = () => {
       <table className="blueTable">
         <thead>
           <tr>
-            <th>ID</th>
+            <th className="centradoTable">ID</th>
             <th className="centradoTable">Tipo de Seguro</th>
             <th className="centradoTable">Fecha de Inicio</th>
             <th className="centradoTable">Fecha de Vencimiento</th>
@@ -98,10 +109,10 @@ const ListarPoliza = () => {
         <tbody>
           {polizas.map((poliza) => (
             <tr key={poliza.id_poliza}>
-              <td>{poliza.id_poliza}</td>
+              <td className="centradoTable">{poliza.id_poliza}</td>
               <td className="centradoTable">{poliza.tipo_seguro}</td>
-              <td className="centradoTable">{poliza.fecha_inicio}</td>
-              <td className="centradoTable">{poliza.fecha_vencimiento}</td>
+              <td className="centradoTable">{formatoFecha(poliza.fecha_inicio)}</td>
+              <td className="centradoTable">{formatoFecha(poliza.fecha_vencimiento)}</td>
               <td className="centradoTable">S/. {poliza.monto_asegurado}</td>
               <td>{poliza.detalles_adicionales || "N/A"}</td>
               <td className="centradoTable">{poliza.id_usuario}</td>
